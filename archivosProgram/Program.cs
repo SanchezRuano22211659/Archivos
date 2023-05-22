@@ -1,7 +1,5 @@
-﻿﻿using System;
+﻿
 using System.IO;
-
-
 class Product
 {
     public string Code;
@@ -16,12 +14,9 @@ class Product
         Price= _Price;
     }
 }
-
-
-
-
 class ProductsDB
 {
+    
     public static void SaveProducts(List<Product> products)
         {
             string name = @"productsDatabase.txt";
@@ -34,10 +29,22 @@ class ProductsDB
             }
             textOut.Close();
         }
+    public static List<Product> GetProducts()
+    {
+        List<Product> products = new();
+        string name = @"productsDatabase.txt";
+        StreamReader textIn = new StreamReader(new FileStream(name,FileMode.Open,FileAccess.Read));
+
+        while(textIn.Peek() != -1)
+        {
+            string? row = textIn.ReadLine();
+            string[] column = row.Split();
+            products.Add(new Product(column[0],column[1],Convert.ToDecimal(column[2])));
+        }
+
+        return products;
+    }
 }
-
-
-
 
  class Program
 {
