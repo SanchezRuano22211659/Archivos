@@ -24,16 +24,13 @@ class ProductsDB
 {
     public static void SaveProducts(List<Product> products)
         {
-            string path = @"a";
-            StreamWriter textOut=
-            new StreamWriter ( new FileStream(path, FileMode.Create, FileAccess.Write));
+            string name = @"productsDatabase.txt";
+            StreamWriter textOut= new StreamWriter ( new FileStream(name, FileMode.Create, FileAccess.Write));
 
 
             foreach(var product in products)
             {
-                textOut.Write(product.Code +"|");
-                textOut.Write(product.Description +"|");
-                textOut.WriteLine(product.Price);
+                textOut.WriteLine($"{product.Code} | {product.Description} | {product.Price}");
             }
             textOut.Close();
         }
@@ -47,9 +44,11 @@ class ProductsDB
     private static void Main(string[] args)
     {
         List<Product> product = new List<Product>();
-        product.Add(new Product ("1", "a", 1m));
-        product.Add(new Product ("2", "b", 2m));
-        product.Add(new Product ("3", "c", 3m));
+        product.Add(new Product ("1200", "a", 1324234m));
+        product.Add(new Product ("200", "b", 221345m));
+        product.Add(new Product ("1234", "c", 3123123m));
+        product.Add(new Product ("13554", "d", 312m));
+        product.Add(new Product ("5832", "e", 3123m));
 
 
         ProductsDB.SaveProducts(product);
