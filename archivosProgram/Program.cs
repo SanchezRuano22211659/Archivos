@@ -50,15 +50,15 @@ class ProductsDB
 {
     private static void Main(string[] args)
     {
-        List<Product> products = new List<Product>();
-        products.Add(new Product ("1200", "a", 1324234m));
-        products.Add(new Product ("200", "b", 221345m));
-        products.Add(new Product ("1234", "c", 3123123m));
-        products.Add(new Product ("13554", "d", 312m));
-        products.Add(new Product ("5832", "e", 3123m));
+        // List<Product> products = new List<Product>();
+        // products.Add(new Product ("1200", "a", 1324234m));
+        // products.Add(new Product ("200", "b", 221345m));
+        // products.Add(new Product ("1234", "c", 3123123m));
+        // products.Add(new Product ("13554", "d", 312m));
+        // products.Add(new Product ("5832", "e", 3123m));
 
 
-        ProductsDB.SaveProducts(products);
-       
+        // ProductsDB.SaveProducts(products);
+       List<Product> products = ProductsDB.GetProducts();
     }
 }
