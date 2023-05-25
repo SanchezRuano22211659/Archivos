@@ -38,7 +38,7 @@ class ProductsDB
         while(textIn.Peek() != -1)
         {
             string? row = textIn.ReadLine();
-            string[] column = row.Split();
+            string[] column = row.Split(' | ');
             products.Add(new Product(column[0],column[1],Convert.ToDecimal(column[2])));
         }
         textIn.Close();
